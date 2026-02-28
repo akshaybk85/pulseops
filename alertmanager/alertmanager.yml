@@ -1,0 +1,20 @@
+global:
+  smtp_smarthost: "smtp.gmail.com:587"
+  smtp_from: "${SMTP_FROM}"
+  smtp_auth_username: "${SMTP_USERNAME}"
+  smtp_auth_password: "${SMTP_PASSWORD}"
+
+route:
+  receiver: "ai-responder"
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+
+receivers:
+  - name: "ai-responder"
+    webhook_configs:
+      - url: "http://ai-responder:5000/alert"
+        send_resolved: true
+    email_configs:
+      - to: "${ALERT_EMAIL_TO}"
+        send_resolved: true
