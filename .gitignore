@@ -27,4 +27,6 @@ terraform/*_override.tf.json
 
 # SSH Keys - NEVER commit
 *.pem
-*.key
+*.keyterraform.tfstate
+terraform.tfstate.backup
+*.tfstate
