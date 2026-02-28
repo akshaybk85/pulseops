@@ -1,13 +1,30 @@
+nano ~/pulseops/.gitignore
+```
+
+Replace everything with:
+```
+# Secrets
 .env
+
+# Mac junk
 .DS_Store
 
-#python
+# Python
 __pycache__/
 *.pyc
 .venv/
 
-#Terraform
-Terraform/.terraform/
-Terraform/*.tfstate
-Terraform/*.tfstate.backup
-Terraform/.terraform.lock.hcl
+# Terraform - NEVER commit these
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
+terraform/*.tfvars
+terraform/override.tf
+terraform/override.tf.json
+terraform/*_override.tf
+terraform/*_override.tf.json
+
+# SSH Keys - NEVER commit
+*.pem
+*.key
